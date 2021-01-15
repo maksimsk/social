@@ -2,4 +2,23 @@
   width: 100%;
   height: 10%;
   background: gainsboro;
+
+  // .Polaris-Select {
+  //   position: absolute;
+  //   top: 44px;
+  //   width: 100%;
+  //   height: auto;
+  //   opacity: 0;
+  //   height: 0;
+  //   transition: ease-in 0.2s;
+  // }
+
+  // .select-open {
+  //   opacity: 1;
+  //   height: auto;
+  // }
+}
+
+:root {
+  --p-decorative-three-surface: red;
 }
