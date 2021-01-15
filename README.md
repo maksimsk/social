@@ -1,24 +1,7 @@
-# README
+#MEMESTERS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ist ein Schulprojekt. Und eine Meme Posting Plattform mit Gruppen und Feed.
+Man kann sagen Reddit ripoff.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Hier das Relationale Datenmodell:
+![Relational Database Model](https://i.ibb.co/yY6Kd7L/Social-db.png)
