@@ -1,4 +1,4 @@
-#MEMESTERS
+# MEMESTERS
 
 Ist ein Schulprojekt. Und eine Meme Posting Plattform mit Gruppen und Feed.
 Man kann sagen Reddit ripoff.
