@@ -16,6 +16,9 @@
   </head>
 
   <body>
+    <div style="--top-bar-background:#000; --top-bar-background-lighter:#565656; --top-bar-color:#f9fafb; --p-frame-offset:0px; height: 100%;">
       <%= render 'header' %>
+      <%= yield %>
+    </div>
   </body>
 </html>
