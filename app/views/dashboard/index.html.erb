@@ -1,0 +1,6 @@
+<% @user_publics.each do |user_public| %>
+  
+  <% Public.find(user_public.public_id).posts.each do |public_post| %>
+    <%= render 'postcard' %>
+  <% end %>
+<% end %>
