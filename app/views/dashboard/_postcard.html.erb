@@ -1,0 +1,20 @@
+<div class="post-container">
+  <div class="post-header">
+    <div class="post-title">
+      <%= Post.last.title %>
+    </div>
+    <div class="post-credentials">
+      <span class="post-public_title">Posted in <b><a href="#">Public title</a></b></span> by <span class="post-user"><a href="#">maksimsk</a></span>
+    </div>
+  </div>
+  <div clas="post-content">
+    
+    <div class="post-text">
+      <%= Post.last.text %>
+    </div>
+    <div class="post-image">
+      <%= image_tag Post.last.image %>
+    </div>
+  </div>
+
+</div>
