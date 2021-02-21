@@ -1,26 +1,82 @@
-<h2>Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<div class="custom-narrow_container">
+  <h2 class="custom-page_title">Log in</h2>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+  <%= render "devise/shared/error_messages", resource: resource %>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="Polaris-FormLayout">
+      <div class="Polaris-FormLayout__Item">
+        <div class="">
+          <div class="Polaris-Labelled__LabelWrapper">
+            <div class="Polaris-Label">
+              <%= f.label :email, class: 'Polaris-Label__Text' %>
+            </div>
+          </div>
+          <div class="Polaris-Connected">
+            <div class="Polaris-Connected__Item Polaris-Connected__Item--primary">
+              <div class="Polaris-TextField">
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'Polaris-TextField__Input' %>
+                <div class="Polaris-TextField__Backdrop"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="Polaris-FormLayout__Item">
+        <div class="">
+          <div class="Polaris-Labelled__LabelWrapper">
+            <div class="Polaris-Label">
+            <%= f.label :password, class: 'Polaris-Label__Text' %>
+            </div>
+          </div>
+          <div class="Polaris-Connected">
+            <div class="Polaris-Connected__Item Polaris-Connected__Item--primary">
+              <div class="Polaris-TextField">
+                <%= f.password_field :password, autocomplete: "current-password", class: 'Polaris-TextField__Input' %>
+                <div class="Polaris-TextField__Backdrop"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% if devise_mapping.rememberable? %>
+        <div class="Polaris-FormLayout__Item">
+          <div class="">
+            <div class="Polaris-Labelled__LabelWrapper">
+              <label class="Polaris-Choice" for="PolarisCheckbox2">
+                <span class="Polaris-Choice__Control">
+                  <span class="Polaris-Checkbox">
+                    <input id="PolarisCheckbox2" type="checkbox" class="Polaris-Checkbox__Input" aria-invalid="false" role="checkbox" aria-checked="false" value="">
+                    <%= f.check_box :remember_me, class: 'Polaris-Checkbox__Input' %>
+                    <span class="Polaris-Checkbox__Backdrop"></span>
+                    <span class="Polaris-Checkbox__Icon">
+                      <span class="Polaris-Icon">
+                        <svg viewBox="0 0 20 20" class="Polaris-Icon__Svg" focusable="false" aria-hidden="true">
+                          <path d="M8.315 13.859l-3.182-3.417a.506.506 0 0 1 0-.684l.643-.683a.437.437 0 0 1 .642 0l2.22 2.393 4.942-5.327a.436.436 0 0 1 .643 0l.643.684a.504.504 0 0 1 0 .683l-5.91 6.35a.437.437 0 0 1-.642 0"></path>
+                        </svg>
+                      </span>
+                    </span>
+                  </span>
+                </span>
+                <span class="Polaris-Choice__Label"><%= f.label :remember_me %></span>
+                
+              </label>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
+    <button class="Polaris-Button Polaris-Button--primary" type="submit">
+      <span class="Polaris-Button__Content">
+        <span class="Polaris-Button__Text">
+          Log in
+        </span>
+      </span>
+    </button>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <div class="custom-notice">Don't have an account yet? <%= link_to "Sign up", new_registration_path(resource_name) %></div>
+  <% end %>
+</div>
