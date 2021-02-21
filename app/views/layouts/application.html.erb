@@ -6,12 +6,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="stylesheet" href="https://unpkg.com/@shopify/polaris@5.5.0/dist/styles.css"/>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://unpkg.com/@shopify/polaris@5.5.0/dist/styles.css"/>
     <% if content_for?(:head) %>
       <%= yield(:head) %>
     <% end %> 
@@ -20,12 +20,12 @@
   <body>
     <div style="--top-bar-background:#000; --top-bar-background-lighter:#565656; --top-bar-color:#f9fafb; --p-frame-offset:0px; height: 100%;">
       <%= render 'header' %>
-      <div class="Polaris-Banner__ContentWrapper">
-        <div class="Polaris-Banner__Heading" id="PolarisBanner17Heading">
-          <p class="Polaris-Heading"><%= notice %><%= alert %></p>
+      <div class="custom-main_container">
+        <div class="custom-narrow_container">
+          <p class="Polaris-Heading custom-notice error-notice"><%= notice %><%= alert %></p>
         </div>
+        <%= yield %>
       </div>
-      <%= yield %>
     </div>
   </body>
 </html>
