@@ -9,4 +9,6 @@ class User < ApplicationRecord
   has_many :dislikes
   has_many :posts
   has_many :comments
+
+  validates :name, presence: true
 end
