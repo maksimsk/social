@@ -1,29 +1,91 @@
-<h2>Sign up</h2>
+<div class="custom-narrow_container">
+  <h2 class="custom-page_title">Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <div class="Polaris-FormLayout">
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <div class="Polaris-FormLayout__Item">
+        <div class="">
+          <div class="Polaris-Labelled__LabelWrapper">
+            <div class="Polaris-Label">
+              <%= f.label :name, class: 'Polaris-Label__Text' %>
+            </div>
+          </div>
+          <div class="Polaris-Connected">
+            <div class="Polaris-Connected__Item Polaris-Connected__Item--primary">
+              <div class="Polaris-TextField">
+                <%= f.text_field :name, class: 'Polaris-TextField__Input' %>
+                <div class="Polaris-TextField__Backdrop"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+      <div class="Polaris-FormLayout__Item">
+        <div class="">
+          <div class="Polaris-Labelled__LabelWrapper">
+            <div class="Polaris-Label">
+              <%= f.label :email, class: 'Polaris-Label__Text' %>
+            </div>
+          </div>
+          <div class="Polaris-Connected">
+            <div class="Polaris-Connected__Item Polaris-Connected__Item--primary">
+              <div class="Polaris-TextField">
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'Polaris-TextField__Input' %>
+                <div class="Polaris-TextField__Backdrop"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+      <div class="Polaris-FormLayout__Item">
+        <div class="">
+          <div class="Polaris-Labelled__LabelWrapper">
+            <div class="Polaris-Label">
+            <%= f.label :password, class: 'Polaris-Label__Text' %>
+            </div>
+          </div>
+          <div class="Polaris-Connected">
+            <div class="Polaris-Connected__Item Polaris-Connected__Item--primary">
+              <div class="Polaris-TextField">
+                <%= f.password_field :password, autocomplete: "current-password", class: 'Polaris-TextField__Input' %>
+                <div class="Polaris-TextField__Backdrop"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-<%= render "devise/shared/links" %>
+      <div class="Polaris-FormLayout__Item">
+        <div class="">
+          <div class="Polaris-Labelled__LabelWrapper">
+            <div class="Polaris-Label">
+            <%= f.label :password_confirmation, class: 'Polaris-Label__Text' %>
+            </div>
+          </div>
+          <div class="Polaris-Connected">
+            <div class="Polaris-Connected__Item Polaris-Connected__Item--primary">
+              <div class="Polaris-TextField">
+                <%= f.password_field :password_confirmation, autocomplete: "current-password", class: 'Polaris-TextField__Input' %>
+                <div class="Polaris-TextField__Backdrop"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="Polaris-Button Polaris-Button--primary" type="submit">
+      <span class="Polaris-Button__Content">
+        <span class="Polaris-Button__Text">
+          Sign up
+        </span>
+      </span>
+    </button>
+  <% end %>
+
+  <div class="custom-notice">Already have an account? <%= link_to "Log in", new_session_path(resource_name) %></div>
+</div>
