@@ -19,13 +19,20 @@
 
   <body>
     <div style="--top-bar-background:#000; --top-bar-background-lighter:#565656; --top-bar-color:#f9fafb; --p-frame-offset:0px; height: 100%;">
-      <%= render 'header' %>
-      <div class="custom-main_container">
-        <div class="custom-narrow_container">
-          <p class="Polaris-Heading custom-notice error-notice"><%= notice %><%= alert %></p>
-        </div>
-        <%= yield %>
+      <div class="Polaris-Frame Polaris-Frame--hasTopBar" data-polaris-layer="true">
+        <%= render 'header' %>
+        <div class="Polaris-Frame__ContextualSaveBar Polaris-Frame-CSSAnimation--startFade"></div>
+        <main class="Polaris-Frame__Main" id="AppFrameMain" data-has-global-ribbon="false">
+          <a id="AppFrameMainContent" tabindex="-1"></a>
+          <div class="custom-main_container">
+            <div class="custom-narrow_container">
+              <p class="Polaris-Heading custom-notice error-notice"><%= notice %><%= alert %></p>
+            </div>
+            <%= yield %>
+          </div>
+        </main>
       </div>
+      <div class="Polaris-Frame-ToastManager" aria-live="polite"></div>
     </div>
   </body>
 </html>
