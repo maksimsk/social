@@ -19,3 +19,123 @@ html, body {
   height: 100%;
   width: 100%;
 }
+
+h2 {
+  display: block;
+  font-size: 1.5em;
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+h3 {
+  display: block;
+  font-size: 1.17em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+h4 {
+  display: block;
+  font-size: 1em;
+  margin-top: 1.33em;
+  margin-bottom: 1.33em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+h1 {
+  display: block;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+a {
+  color: red;
+  text-decoration: none;
+}
+
+main#AppFrameMain {
+  background-color: #222;
+  color: white;
+}
+
+.custom-main_container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.custom-narrow_container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+
+.custom-notice {
+  padding: 30px 0 0 0;
+  text-align: center;
+}
+
+button.Polaris-Button.Polaris-Button--primary {
+  margin-top: 20px;
+}
+
+#error_explanation {
+  padding: 20px 0;
+}
+
+.error-notice {
+  color: red;
+}
+
+.Polaris-FormLayout {
+  margin-top: unset;
+}
+
+form {
+  padding-top: 20px;
+}
+
+.post-container {
+  max-width: 500px;
+  margin: auto;
+  background-color: #333;
+  margin-bottom: 5px;
+  padding: 10px;
+}
+
+.post-container img {
+  width: 500px;
+  height: 300px;
+  object-fit: contain;
+}
+
+.post-header {
+  padding-bottom: 10px;
+}
+
+.post-credentials {
+  color: #999;
+  font-size: 12px;
+}
+
+.post-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 750px) {
+  .custom-main_container {
+    padding: 0 10px;
+  }
+}
