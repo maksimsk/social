@@ -34,68 +34,8 @@
           </a>
         </div>
         
+        <% if user_signed_in? %>
         <div class="Polaris-TopBar__Contents">
-          
-          <%# <div class="Polaris-TopBar__SearchField">
-            <div class="Polaris-TopBar-SearchField">
-              <span class="Polaris-VisuallyHidden">
-                <label for="PolarisSearchField1">Search</label>
-              </span>
-              <input id="PolarisSearchField1" class="Polaris-TopBar-SearchField__Input" placeholder="Search" type="search" autocapitalize="off" autocomplete="off" autocorrect="off" value="">
-              <span class="Polaris-TopBar-SearchField__Icon">
-                <span class="Polaris-Icon">
-                  <svg viewBox="0 0 20 20" class="Polaris-Icon__Svg" focusable="false" aria-hidden="true">
-                    <path d="M8 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm9.707 4.293l-4.82-4.82A5.968 5.968 0 0 0 14 8 6 6 0 0 0 2 8a6 6 0 0 0 6 6 5.968 5.968 0 0 0 3.473-1.113l4.82 4.82a.997.997 0 0 0 1.414 0 .999.999 0 0 0 0-1.414z"></path>
-                  </svg>
-                </span>
-              </span>
-              <div class="Polaris-TopBar-SearchField__Backdrop Polaris-TopBar-SearchField__BackdropShowFocusBorder"></div>
-            </div>
-            <div class="Polaris-TopBar-Search">
-              <div class="Polaris-TopBar-Search__Results">
-                <div class="Polaris-Card">
-                  <div class="Polaris-ActionList">
-                    <div class="Polaris-ActionList__Section--withoutTitle">
-                      <ul class="Polaris-ActionList__Actions">
-                        <li>
-                          <button type="button" class="Polaris-ActionList__Item">
-                            <div class="Polaris-ActionList__Content">
-                              <div class="Polaris-ActionList__Text">Shopify help center</div>
-                            </div>
-                          </button>
-                        </li>
-                        <li>
-                          <button type="button" class="Polaris-ActionList__Item">
-                            <div class="Polaris-ActionList__Content">
-                              <div class="Polaris-ActionList__Text">Community forums</div>
-                            </div>
-                          </button>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> %>
-          
-          <!-- <div class="Polaris-TopBar__SecondaryMenu">
-            <div>
-              <div class="Polaris-TopBar-Menu__ActivatorWrapper">
-                <button type="button" class="Polaris-TopBar-Menu__Activator" tabindex="0" aria-controls="Polarispopover1" aria-owns="Polarispopover1" aria-expanded="false">
-                  <span>
-                    <span class="Polaris-Icon">
-                      <svg viewBox="0 0 20 20" class="Polaris-Icon__Svg" focusable="false" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M0 10C0 4.478 4.478 0 10 0c5.523 0 10 4.478 10 10 0 5.523-4.477 10-10 10-5.522 0-10-4.477-10-10zm11.125 2.002H8.989v-.141c.01-1.966.492-2.254 1.374-2.782.093-.056.19-.114.293-.178.73-.459 1.292-1.038 1.292-1.883 0-.948-.743-1.564-1.666-1.564-.851 0-1.657.398-1.712 1.533H6.304C6.364 4.693 8.18 3.5 10.294 3.5c2.306 0 3.894 1.447 3.894 3.488 0 1.382-.695 2.288-1.805 2.952l-.238.144c-.79.475-1.009.607-1.02 1.777V12zm.17 3.012a1.344 1.344 0 0 1-1.327 1.328 1.32 1.32 0 0 1-1.328-1.328 1.318 1.318 0 0 1 1.328-1.316c.712 0 1.322.592 1.328 1.316z"></path>
-                      </svg>
-                    </span>
-                    <span class="Polaris-VisuallyHidden">Secondary menu</span>
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div> -->
-          
           <div>
             <div class="Polaris-TopBar-Menu__ActivatorWrapper">
               <button id="user-button" type="button" class="Polaris-TopBar-Menu__Activator" tabindex="0" aria-controls="Polarispopover2" aria-owns="Polarispopover2" aria-expanded="false">
@@ -109,15 +49,16 @@
                   </span>
                 </div>
                 <span class="Polaris-TopBar-UserMenu__Details">
-                  <p class="Polaris-TopBar-UserMenu__Name">Maki</p>
-                  <p class="Polaris-TopBar-UserMenu__Detail">Guru</p>
+                  <p class="Polaris-TopBar-UserMenu__Name"><%= current_user.name %></p>
+                  <% if current_user.admin %>
+                    <p class="Polaris-TopBar-UserMenu__Detail">Admin</p>
+                  <% end %>
                 </span>
-              </div>
-
               </button>
+            </div>
           </div>
-
         </div>
+        <% end %>
 
       </div>
     </div>
