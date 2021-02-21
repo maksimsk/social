@@ -1,17 +1,75 @@
-<%= form_with(model: post, local: true) do |form| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<div class="custom-narrow_container">
+  <h2 class="custom-page_title">New post in (This Public)</h2>
 
-      <ul>
-        <% post.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+  <%= form_with(model: post, local: true) do |f| %>
+
+    <% if post.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+        <ul>
+          <% post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="Polaris-FormLayout">
+      <div class="Polaris-FormLayout__Item">
+        <div class="">
+          <div class="Polaris-Labelled__LabelWrapper">
+            <div class="Polaris-Label">
+              <%= f.label :title, class: 'Polaris-Label__Text' %>
+            </div>
+          </div>
+          <div class="Polaris-Connected">
+            <div class="Polaris-Connected__Item Polaris-Connected__Item--primary">
+              <div class="Polaris-TextField">
+                <%= f.text_field :title, autofocus: true, class: 'Polaris-TextField__Input' %>
+                <div class="Polaris-TextField__Backdrop"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="Polaris-FormLayout__Item">
+        <div class="">
+          <div class="Polaris-Labelled__LabelWrapper">
+            <div class="Polaris-Label">
+            <%= f.label :text, 'Caption (Optional)', class: 'Polaris-Label__Text' %>
+            </div>
+          </div>
+          <div class="Polaris-Connected">
+            <div class="Polaris-Connected__Item Polaris-Connected__Item--primary">
+              <div class="Polaris-TextField">
+                <%= f.text_area :text, class: 'Polaris-TextField__Input' %>
+                <div class="Polaris-TextField__Backdrop"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="Polaris-FormLayout__Item">
+        <div class="">
+          <div class="Polaris-Labelled__LabelWrapper">
+            <div class="Polaris-Label">
+            <%= f.label 'Image', class: 'Polaris-Label__Text' %>
+            </div>
+          </div>
+          <%= f.file_field :image %>
+        </div>
+      </div>
+
+      <%= f.hidden_field :public_id, value: Public.first.id %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
     </div>
+    <button class="Polaris-Button Polaris-Button--primary" type="submit">
+      <span class="Polaris-Button__Content">
+        <span class="Polaris-Button__Text">
+          Post
+        </span>
+      </span>
+    </button>
   <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
