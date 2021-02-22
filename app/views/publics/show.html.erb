@@ -1,4 +1,31 @@
-<p id="notice"><%= notice %></p>
+<div class="custom-narrow_container">
+  <% if PublicUser.find_by(public_id: @public.id, user_id: current_user.id).present? %>
+    <%= button_to public_public_user_path(@public), method: 'delete', class: 'Polaris-Button Polaris-Button--primary Polaris-Button--post', style: 'margin: 0;', form: { style: 'all: unset;' } do %>
+      <span class="Polaris-Button__Content">
+          <span class="Polaris-Button__Text">
+            Unsubscribe
+          </span>
+        </span>
+    <% end %>
 
-<%= link_to 'Edit', edit_public_path(@public) %> |
-<%= link_to 'Back', publics_path %>
+    <%= button_to new_public_post_path(@public), method: 'get', class: 'Polaris-Button Polaris-Button--primary Polaris-Button--post', style: 'margin-top: 10px;', form: { style: 'padding: 0;' } do %>
+      <span class="Polaris-Button__Content">
+          <span class="Polaris-Button__Text">
+            New post
+          </span>
+        </span>
+    <% end %>
+  <% else %>
+    <%= button_to public_public_users_path(@public), method: 'post', class: 'Polaris-Button Polaris-Button--primary Polaris-Button--post' do %>
+      <span class="Polaris-Button__Content">
+          <span class="Polaris-Button__Text">
+            Subscribe
+          </span>
+        </span>
+    <% end %>
+  <% end %>
+</div>
+
+<% @public.posts.each do |public_post| %>
+  <%= render partial: 'postcard', locals: { post: public_post, user_likes: @user_likes } %>
+<% end %>

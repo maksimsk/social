@@ -1,25 +1,8 @@
-<p id="notice"><%= notice %></p>
+<h2>Trends</h2>
 
-<h1>publics</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @publics.each do |public| %>
-      <tr>
-        <td><%= link_to 'Show', public %></td>
-        <td><%= link_to 'Edit', edit_public_path(public) %></td>
-        <td><%= link_to 'Destroy', public, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New public', new_public_path %>
+<% Public.all.each do |public| %>
+  
+  <% public.posts.each do |public_post| %>
+    <%= render partial: 'postcard', locals: { post: public_post, user_likes: @user_likes } %>
+  <% end %>
+<% end %>

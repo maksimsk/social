@@ -1,17 +1,46 @@
-<%= form_with(model: @public, local: true) do |form| %>
-  <% if @public.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@public.errors.count, "error") %> prohibited this public from being saved:</h2>
 
-      <ul>
-        <% @public.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+<div class="custom-narrow_container">
+  <%= form_with(model: @public, local: true) do |f| %>
+
+    <% if @public.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@public.errors.count, "error") %> prohibited this public from being saved:</h2>
+
+        <ul>
+          <% @public.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="Polaris-FormLayout">
+      <div class="Polaris-FormLayout__Item">
+        <div class="">
+          <div class="Polaris-Labelled__LabelWrapper">
+            <div class="Polaris-Label">
+              <%= f.label :name, class: 'Polaris-Label__Text' %>
+            </div>
+          </div>
+          <div class="Polaris-Connected">
+            <div class="Polaris-Connected__Item Polaris-Connected__Item--primary">
+              <div class="Polaris-TextField">
+                <%= f.text_field :name, autofocus: true, class: 'Polaris-TextField__Input' %>
+                <div class="Polaris-TextField__Backdrop"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <%= f.hidden_field :user_id, value: current_user.id %>
     </div>
+    <button class="Polaris-Button Polaris-Button--primary" type="submit">
+      <span class="Polaris-Button__Content">
+        <span class="Polaris-Button__Text">
+          Create Public
+        </span>
+      </span>
+    </button>
   <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

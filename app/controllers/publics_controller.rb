@@ -8,6 +8,7 @@ class PublicsController < ApplicationController
 
 
   def show
+    @user_likes = Like.where(user_id: current_user.id)
   end
 
   def new
@@ -59,6 +60,6 @@ class PublicsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def public_params
-      params.fetch(:public, {})
+      params.fetch(:public, {}).permit(:name, :user_id)
     end
 end
