@@ -1,0 +1,24 @@
+<div style="display: flex; justify-content: space-between;">
+  <h1>user <%= @user.name %></h1>
+  <%= button_to destroy_user_session_path, method: 'delete', class: 'Polaris-Button Polaris-Button--primary', style: 'margin-top: 10px;', form: { style: 'padding: 0;' } do %>
+    <span class="Polaris-Button__Content">
+      <span class="Polaris-Button__Text">
+        Log out
+      </span>
+    </span>
+  <% end %>
+</div>
+<h3>
+  <p><b>Memester since:</b> <%= @user.created_at.in_time_zone('Berlin').strftime('%d.%m.%y %H:%M:%S') %></p>
+  <p><b>Latest login:</b> <%= @user.current_sign_in_at.in_time_zone('Berlin').strftime('%d.%m.%y %H:%M:%S') %></p>
+</h3>
+
+<% if @user == current_user %>
+  <%= button_to new_public_path, method: 'get', class: 'Polaris-Button Polaris-Button--primary Polaris-Button--post' do %>
+    <span class="Polaris-Button__Content">
+      <span class="Polaris-Button__Text">
+        Create new public
+      </span>
+    </span>
+  <% end %>
+<% end %>
