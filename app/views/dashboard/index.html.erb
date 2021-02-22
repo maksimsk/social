@@ -1,6 +1,6 @@
 <% @user_publics.each do |user_public| %>
-  
   <% Public.find(user_public.public_id).posts.each do |public_post| %>
-    <%= render 'postcard' %>
+    <%#= render 'postcard' %>
+    <%= render partial: 'postcard', locals: { post: public_post, user_likes: @user_likes } %>
   <% end %>
 <% end %>
