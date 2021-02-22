@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
-  resources :posts
-  resources :publics
-  resources :comments
-  
-  
+  get 'users/show'
+  resources :publics do
+    resources :posts
+    resources :public_users
+  end
+  resources :posts do
+    resources :likes
+    resources :dislikes
+    resources :comments
+  end
   devise_for :users, controllers: { registrations: 'users/registrations' }
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :users, :only => [:show]
 
   root to: 'dashboard#index'
 end
