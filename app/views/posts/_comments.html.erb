@@ -1,0 +1,41 @@
+<% if post.comments.present? %>
+  <% post.comments.each do |comment| %>
+    <div class="comment">
+      <p><a href="<% user_path(comment.user) %>"><b><%= comment.user.name %></b></a></p>
+      <p><%= comment.text %></p>
+    </div>
+  <% end %>
+<% end %>
+  
+<%= form_with(model: [ post, post.comments.build ]) do |f| %>
+
+  <div class="Polaris-FormLayout">
+    <div class="Polaris-FormLayout__Item">
+      <div class="">
+        <div class="Polaris-Labelled__LabelWrapper">
+          <div class="Polaris-Label">
+            <%= f.label :text, class: 'Polaris-Label__Text' %>
+          </div>
+        </div>
+        <div class="Polaris-Connected">
+          <div class="Polaris-Connected__Item Polaris-Connected__Item--primary">
+            <div class="Polaris-TextField">
+              <%= f.text_area :text, autofocus: true, class: 'Polaris-TextField__Input' %>
+              <div class="Polaris-TextField__Backdrop"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%= f.hidden_field :post_id, value: post.id %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  </div>
+  <button class="Polaris-Button Polaris-Button--primary" type="submit">
+    <span class="Polaris-Button__Content">
+      <span class="Polaris-Button__Text">
+        Comment
+      </span>
+    </span>
+  </button>
+<% end %>

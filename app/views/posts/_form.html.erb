@@ -1,5 +1,5 @@
 <div class="custom-narrow_container">
-  <h2 class="custom-page_title">New post in (This Public)</h2>
+  <h2 class="custom-page_title">New post in <a href="<%= public_path(@public) %>"><%= @public.name %></a></h2>
 
   <%= form_with(model: post, local: true) do |f| %>
 
@@ -61,7 +61,7 @@
         </div>
       </div>
 
-      <%= f.hidden_field :public_id, value: Public.first.id %>
+      <%= f.hidden_field :public_id, value: @public.id %>
       <%= f.hidden_field :user_id, value: current_user.id %>
     </div>
     <button class="Polaris-Button Polaris-Button--primary" type="submit">

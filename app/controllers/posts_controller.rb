@@ -10,11 +10,14 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @user_likes = Like.where(user_id: current_user.id)
+    @comment = Comment.new(post_id: @post.id)
   end
 
   # GET /posts/new
   def new
     @post = Post.new
+    @public = Public.find(params[:public_id])
   end
 
   # GET /posts/1/edit

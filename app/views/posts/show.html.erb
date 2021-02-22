@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<div class="post-wrapper">
+  <%= render partial: 'postcard', locals: { post: @post, user_likes: @user_likes } %>
+  <%= render partial: 'comments', locals: { post: @post }, object: @comment %>
+</div>
