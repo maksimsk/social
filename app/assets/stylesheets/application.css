@@ -70,9 +70,19 @@ main#AppFrameMain {
   color: white;
 }
 
+textarea.Polaris-TextField__Input {
+  background-color: #aaa;
+}
+
+input {
+  background-color: #aaa !important;
+  color: black !important;
+}
+
 .custom-main_container {
   max-width: 1200px;
   margin: 0 auto;
+  margin-bottom: 100px;
 }
 
 .custom-narrow_container {
@@ -80,6 +90,29 @@ main#AppFrameMain {
   margin: 0 auto;
 }
 
+.Polaris-Button--primary {
+  background: linear-gradient(to bottom, #ff0000, #a70000);
+  border-color: #5a0404;
+  box-shadow: inset 0 1px 0 0 #c86767, 0 1px 0 0 rgb(22 29 37 / 5%), 0 0 0 0 transparent;
+}
+
+.Polaris-Button--primary:hover {
+  background: linear-gradient(to bottom, #cf0000, #810000);
+  border-color: #3a0000;
+}
+
+.Polaris-Button--primary.Polaris-Button--post {
+  width: 500px;
+  margin-bottom: 20px; 
+}
+
+main#AppFrameMain .Polaris-Checkbox .Polaris-Checkbox__Backdrop {
+  background-color: red;
+}
+
+.Polaris-Icon svg {
+  fill: red;
+}
 
 .custom-notice {
   padding: 30px 0 0 0;
@@ -112,12 +145,15 @@ form {
   background-color: #333;
   margin-bottom: 5px;
   padding: 10px;
+  max-height: 550px;
+  width: 500px;
 }
 
 .post-container img {
   width: 500px;
   height: 300px;
   object-fit: contain;
+  width: fit-content;
 }
 
 .post-header {
@@ -132,6 +168,91 @@ form {
 .post-title {
   font-size: 16px;
   font-weight: bold;
+}
+
+.post-text {
+  max-height: 120px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.post-image {
+  display: flex;
+}
+
+.post-footer {
+  height: 30px;
+  margin-top: 10px;
+  display: flex;
+  padding-right: 20px;
+  padding-left: 20px;
+  justify-content: space-between;
+}
+
+.post-footer > div {
+  width: 33.33%;
+  text-align: center;
+}
+
+.post-footer .post-reactions {
+  justify-content: space-evenly;
+}
+
+.post-footer svg {
+  height: 30px;
+  width: 30px;
+}
+
+.post-reactions {
+  display: flex;
+}
+
+.post-footer svg path {
+  fill: #999;
+}
+
+.post-footer svg path.active {
+  fill: red;
+}
+
+.post-footer svg:hover {
+  fill: white;
+}
+
+.post-reactions form {
+  all: unset;
+}
+
+.post-reactions button {
+  all: unset;
+  cursor: pointer;
+}
+
+.post-likes, .post-dislikes {
+  display: flex;
+}
+
+.post-like {
+  color: #999;
+  align-self: center;
+  padding-right: 5px;
+}
+
+.post-dislike {
+  color: #999;
+  align-self: center;
+  padding-left: 5px;
+}
+
+.post-comment {
+  display: flex;
+  justify-content: center;
+}
+
+.comment {
+  padding: 10px;
+  background: #292929;
+  margin-bottom: 5px;
 }
 
 @media only screen and (max-width: 750px) {
