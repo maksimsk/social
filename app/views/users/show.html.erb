@@ -7,6 +7,14 @@
       </span>
     </span>
   <% end %>
+
+  <%= button_to user_path, method: 'delete', class: 'Polaris-Button Polaris-Button--primary', style: 'margin-top: 10px;', form: { style: 'padding: 0;' }, data: { confirm: "Are you sure?" } do %>
+    <span class="Polaris-Button__Content">
+      <span class="Polaris-Button__Text">
+        Delete account
+      </span>
+    </span>
+  <% end %>
 </div>
 <h3>
   <p><b>Memester since:</b> <%= @user.created_at.in_time_zone('Berlin').strftime('%d.%m.%y %H:%M:%S') %></p>

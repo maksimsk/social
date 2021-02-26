@@ -11,6 +11,5 @@ Rails.application.routes.draw do
   end
   devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :users, :only => [:show]
-
-  root to: 'dashboard#index'
+  match 'users/:id', to: 'users#destroy', via: :delete
 end
