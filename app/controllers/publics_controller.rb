@@ -4,9 +4,8 @@ class PublicsController < ApplicationController
 
   def index
     @publics = Public.all
-    @posts = Post.all.sort_by(&:created_at)
+    @posts = Post.all.sort_by(&:created_at).reverse
   end
-
 
   def show
     @user_likes = Like.where(user_id: current_user.id)
