@@ -255,6 +255,10 @@ form {
   margin-bottom: 5px;
 }
 
+.nothing-text_container, .nothing-image_container {
+  text-align: center;
+}
+
 @media only screen and (max-width: 750px) {
   .custom-main_container {
     padding: 0 10px;

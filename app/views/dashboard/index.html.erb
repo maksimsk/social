@@ -4,3 +4,7 @@
     <%= render partial: 'postcard', locals: { post: public_post, user_likes: @user_likes } %>
   <% end %>
 <% end %>
+
+<% if @user_publics.blank? %>
+  <%= render 'nothing' %>
+<% end %>
