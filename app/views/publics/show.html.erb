@@ -26,6 +26,6 @@
   <% end %>
 </div>
 
-<% @public.posts.each do |public_post| %>
+<% @public.posts.reverse.each do |public_post| %>
   <%= render partial: 'postcard', locals: { post: public_post, user_likes: @user_likes } %>
 <% end %>
