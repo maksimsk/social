@@ -8,9 +8,9 @@ class DislikesController < ApplicationController
     
     if Dislike.find_by(post_id: @post.id, user_id: current_user.id).blank?
       @post.dislikes.create(user_id: current_user.id)
-      redirect_to root_path, notice: 'You Disliked the Post'
+      redirect_back fallback_location: root_path, notice: 'You Disliked the Post'
     else
-      redirect_to root_path, notice: 'You have already disliked this post'
+      redirect_back fallback_location: root_path, notice: 'You have already disliked this post'
     end
   end
 

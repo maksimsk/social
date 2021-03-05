@@ -8,9 +8,9 @@ class LikesController < ApplicationController
     
     if Like.find_by(post_id: @post.id, user_id: current_user.id).blank?
       @post.likes.create(user_id: current_user.id)
-      redirect_to root_path, notice: 'You Liked the Post'
+      redirect_back fallback_location: root_path, notice: 'You Liked the Post'
     else
-      redirect_to root_path, notice: 'You have already liked this post'
+      redirect_back fallback_location: root_path, notice: 'You have already liked this post'
     end
   end
   private

@@ -1,19 +1,22 @@
 <div style="display: flex; justify-content: space-between;">
   <h1>user <%= @user.name %></h1>
-  <%= button_to destroy_user_session_path, method: 'delete', class: 'Polaris-Button Polaris-Button--primary', style: 'margin-top: 10px;', form: { style: 'padding: 0;' } do %>
-    <span class="Polaris-Button__Content">
-      <span class="Polaris-Button__Text">
-        Log out
-      </span>
-    </span>
-  <% end %>
 
-  <%= button_to user_path, method: 'delete', class: 'Polaris-Button Polaris-Button--primary', style: 'margin-top: 10px;', form: { style: 'padding: 0;' }, data: { confirm: "Are you sure?" } do %>
-    <span class="Polaris-Button__Content">
-      <span class="Polaris-Button__Text">
-        Delete account
+  <% if @user == current_user %>
+    <%= button_to destroy_user_session_path, method: 'delete', class: 'Polaris-Button Polaris-Button--primary', style: 'margin-top: 10px;', form: { style: 'padding: 0;' } do %>
+      <span class="Polaris-Button__Content">
+        <span class="Polaris-Button__Text">
+          Log out
+        </span>
       </span>
-    </span>
+    <% end %>
+
+    <%= button_to user_path, method: 'delete', class: 'Polaris-Button Polaris-Button--primary', style: 'margin-top: 10px;', form: { style: 'padding: 0;' }, data: { confirm: "Are you sure?" } do %>
+      <span class="Polaris-Button__Content">
+        <span class="Polaris-Button__Text">
+          Delete account
+        </span>
+      </span>
+    <% end %>
   <% end %>
 </div>
 <h3>

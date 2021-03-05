@@ -4,12 +4,12 @@
       <a href="<%= post_path(post) %>" style="color: white;"><%= post.title %></a>
     </div>
     <div class="post-credentials">
-      <span class="post-public_title">Posted in <b><a href="<%= public_path(post.public) %>"><%= post.public.name %></a></b></span> by <span class="post-user"><a href="<%= user_path(post.user) %>"><b>maksimsk</b></a></span>
+      <span class="post-public_title">Posted in <b><a href="<%= public_path(post.public) %>"><%= post.public.name %></a></b></span> by <span class="post-user"><a href="<%= user_path(post.user) %>"><b>maksimsk</b></a> at <%= post.created_at.in_time_zone('Berlin').strftime("%H:%M, %d.%m.%y") %></span>
     </div>
   </div>
   <div class="post-content">
     <div class="post-text">
-      <%= post.text.slice(0, 256) %><a href="<%= post_path(post) %>" style="color: white;">...</a>
+      <%= post.text %>
     </div>
     <div class="post-image">
       <%= image_tag post.image rescue nil %>
@@ -43,3 +43,24 @@
     </div>
   </div>
 </div>
+
+<style>
+.post-wrapper .post-text {
+  max-height: unset;
+}
+
+.post-wrapper .post-container {
+  max-height: unset;
+  height: auto;
+  max-width: 700px;
+  width: 700px;
+}
+
+.post-wrapper .post-container img {
+  all: unset;
+  width: 100%;
+  height: 100%;
+  max-height: 700px;
+  object-fit: contain;
+}
+</style>
