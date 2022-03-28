@@ -153,11 +153,17 @@ form {
   width: 500px;
   height: 300px;
   object-fit: contain;
-  width: fit-content;
+  width: 100%;
 }
 
 .post-header {
   padding-bottom: 10px;
+}
+
+.post-content {
+  overflow-y: auto;
+  max-height: 440px;
+  max-width: 480px;
 }
 
 .post-credentials {
@@ -178,6 +184,8 @@ form {
 
 .post-image {
   display: flex;
+  margin-bottom: 20px;
+  justify-content: center;
 }
 
 .post-footer {

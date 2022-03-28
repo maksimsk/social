@@ -4,7 +4,7 @@
       <a href="<%= post_path(post) %>" style="color: white;"><%= post.title %></a>
     </div>
     <div class="post-credentials">
-      <span class="post-public_title">Posted in <b><a href="<%= public_path(post.public) %>"><%= post.public.name %></a></b></span> by <span class="post-user"><a href="<%= user_path(post.user) %>"><b>maksimsk</b></a> at <%= post.created_at.in_time_zone('Berlin').strftime("%H:%M, %d.%m.%y") %></span>
+      <span class="post-public_title">Posted in <b><a href="<%= public_path(post.public) %>"><%= post.public.name %></a></b></span> by <span class="post-user"><a href="<%= user_path(post.user) %>"><b><%= post.user.name %></b></a> at <%= post.created_at.in_time_zone('Berlin').strftime("%H:%M, %d.%m.%y") %></span>
     </div>
   </div>
   <div class="post-content">
@@ -14,6 +14,11 @@
     <div class="post-image">
       <%= image_tag post.image rescue nil %>
     </div>
+    <% if post.youtube_link.present? %>
+      <div class="post-youtube">
+        <iframe width="480" height="315" src="<%= post.youtube_link %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    <% end %>
   </div>
   <div class="post-footer">
     <div class="post-reactions">

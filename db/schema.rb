@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_01_152312) do
+ActiveRecord::Schema.define(version: 2022_02_21_111731) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,16 +66,6 @@ ActiveRecord::Schema.define(version: 2021_03_01_152312) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
-  create_table "pools", force: :cascade do |t|
-    t.integer "votes_total"
-    t.string "title", null: false
-    t.text "text"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_pools_on_user_id"
-  end
-
   create_table "posts", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "public_id", null: false
@@ -83,6 +73,7 @@ ActiveRecord::Schema.define(version: 2021_03_01_152312) do
     t.string "text"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "youtube_link"
     t.index ["public_id"], name: "index_posts_on_public_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
@@ -138,7 +129,6 @@ ActiveRecord::Schema.define(version: 2021_03_01_152312) do
   add_foreign_key "dislikes", "users"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
-  add_foreign_key "pools", "users"
   add_foreign_key "posts", "publics"
   add_foreign_key "posts", "users"
   add_foreign_key "public_users", "publics"
